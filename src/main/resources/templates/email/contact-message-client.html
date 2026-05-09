@@ -80,24 +80,23 @@
 
     <div class="email-header">
       <img src="favicon_white.png" alt="Logo Daniel Rodríguez">
-      <h1 th:text="'Hola, ' + ${name}">Hola, Nombre</h1>
+      <h1 th:text="${title}">Hola, Nombre</h1>
     </div>
 
     <div class="email-body">
-      <p>Gracias por ponerte en contacto conmigo.</p>
+      <p th:text="${intro}">Gracias por ponerte en contacto conmigo.</p>
 
-      <p>
-        He recibido correctamente tu mensaje y revisaré la información lo antes posible.
-        Me pondré en contacto contigo cuando tenga una respuesta.
+      <p th:text="${body}">
+        He recibido correctamente tu mensaje.
       </p>
 
-      <div class="highlight-box">
-        Este correo confirma que tu mensaje ha sido enviado correctamente desde el formulario de contacto.
+      <div class="highlight-box" th:text="${highlight}">
+        Confirmación del mensaje.
       </div>
     </div>
 
-    <div class="email-footer">
-      Este correo fue generado automáticamente. Por favor, no respondas a este mensaje.
+    <div class="email-footer" th:text="${footer}">
+      Este correo fue generado automáticamente.
     </div>
 
   </div>

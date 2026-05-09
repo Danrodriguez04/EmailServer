@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
 <head>
   <meta charset="UTF-8">
   <title>Nuevo mensaje de contacto</title>
@@ -28,7 +28,7 @@
     }
 
     .email-header{
-      background:#2563eb;
+      background: #000000;
       padding:30px;
       text-align:center;
     }
@@ -88,7 +88,7 @@
 
     <div class="email-header">
 
-      <img src="http://cdn.arivelas.com/favicon.ico" alt="Logo">
+      <img src="favicon_white.png" alt="Logo">
 
       <h1>Nuevo mensaje de contacto</h1>
 
@@ -118,6 +118,11 @@
         <tr>
           <td class="info-title">Mensaje</td>
           <td th:text="${message}">Contenido del mensaje</td>
+        </tr>
+
+        <tr>
+          <td class="info-title">Language</td>
+          <td th:text="${lang}">Idioma</td>
         </tr>
 
       </table>
