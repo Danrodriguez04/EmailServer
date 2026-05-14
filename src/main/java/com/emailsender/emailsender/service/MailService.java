@@ -55,7 +55,7 @@ public class MailService {
         context.setVariable("message", request.getMessage());
         context.setVariable("lang", request.getLanguage());
 
-        String html = templateEngine.process("templates/email/contact-message", context);
+        String html = templateEngine.process("contact-message", context);
 
         MimeMessage message = mailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message, true, "UTF-8");
@@ -92,7 +92,7 @@ public class MailService {
         context.setVariable("highlight", emailMessageSource.getMessage("email.client.highlight", null, locale));
         context.setVariable("footer", emailMessageSource.getMessage("email.client.footer", null, locale));
 
-        String html = templateEngine.process("templates/email/contact-message-client", context);
+        String html = templateEngine.process("contact-message-client", context);
 
         MimeMessage message = mailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message, true, "UTF-8");
