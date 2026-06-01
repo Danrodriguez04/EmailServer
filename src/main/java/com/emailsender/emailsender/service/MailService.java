@@ -8,8 +8,8 @@ import org.springframework.context.MessageSource;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
-import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
+import org.thymeleaf.spring6.SpringTemplateEngine;
 
 import java.util.Locale;
 
@@ -17,7 +17,7 @@ import java.util.Locale;
 public class MailService {
 
     private final JavaMailSender mailSender;
-    private final TemplateEngine templateEngine;
+    private final SpringTemplateEngine templateEngine;
     private final MessageSource emailMessageSource;
 
 
@@ -33,7 +33,7 @@ public class MailService {
 
     public MailService(
             JavaMailSender mailSender,
-            TemplateEngine templateEngine,
+            SpringTemplateEngine templateEngine,
             MessageSource emailMessageSource
     ) {
         this.mailSender = mailSender;
@@ -65,7 +65,7 @@ public class MailService {
         helper.setCc(personalEmail);
 
         helper.setSubject("Contacto:  " + request.getIssue());
-        helper.setText(html, true);
+        message.setContent(html, "text/html; charset=UTF-8");
 
         mailSender.send(message);
     }
@@ -100,7 +100,7 @@ public class MailService {
         helper.setFrom(sendEmail);
         helper.setTo(request.getEmail());
         helper.setSubject(subject);
-        helper.setText(html, true);
+        message.setContent(html, "text/html; charset=UTF-8");
 
         mailSender.send(message);
     }

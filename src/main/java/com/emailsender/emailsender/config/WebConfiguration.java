@@ -16,8 +16,7 @@ public class WebConfiguration implements WebMvcConfigurer{
         registry.addMapping("/**")
                 .allowCredentials(true)
                 .allowedOrigins(cors.split(","))
-                .allowedMethods("POST")
-                .allowedHeaders("*");
+                .allowedMethods("POST");
     }
 
 }

@@ -2,12 +2,11 @@ package com.emailsender.emailsender.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.thymeleaf.spring6.SpringTemplateEngine;
 import org.thymeleaf.spring6.templateresolver.SpringResourceTemplateResolver;
+import org.thymeleaf.templatemode.TemplateMode;
 
 @Configuration
-@EnableWebMvc
 public class ThymeleafConfiguration {
 
     @Bean
@@ -23,7 +22,8 @@ public class ThymeleafConfiguration {
                 = new SpringResourceTemplateResolver();
         templateResolver.setPrefix("classpath:/templates/email/");
         templateResolver.setSuffix(".html");
-        templateResolver.setTemplateMode("HTML5");
+        templateResolver.setTemplateMode(TemplateMode.HTML);
+        templateResolver.setCharacterEncoding("UTF-8");
         return templateResolver;
     }
 }
