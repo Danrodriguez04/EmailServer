@@ -21,9 +21,9 @@ public class MessageController {
     }
 
     @PostMapping("/email")
-    public ResponseEntity<Void> send(@RequestBody ContactRequestDto request) throws MessagingException {
+    public ResponseEntity<String> send(@RequestBody ContactRequestDto request) throws MessagingException {
         mailService.sendContactMail(request);
-        return ResponseEntity.ok().build();
+        return ResponseEntity.ok("Email send correctly");
     }
 
 
